@@ -1,0 +1,37 @@
+$breakpoints: (
+	"phone": 400px,
+	"phone-wide": 480px,
+	"phablet": 560px,
+	"tablet-small": 640px,
+	"tablet": 768px,
+	"tablet-wide": 1024px,
+	"desktop": 1200px,
+	"desktop-wide": 1440px,
+);
+@mixin mq($width, $type: max) {
+	@if map_has_key($breakpoints, $width) {
+		$width: map_get($breakpoints, $width);
+		@if $type == min {
+			$width: $width + 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+@mixin bodyText($size) {
+	@if $size == large {
+		font-size: 18px;
+		line-height: 28px;
+		@include mq("tablet") {
+			font-size: 15px;
+		}
+		@include mq("phablet") {
+			font-size: 18px;
+		}
+	} @else if $size == small {
+		font-size: 15px;
+		line-height: 25px;
+	}
+}
