@@ -1,0 +1,23 @@
+.auxBar {
+	display: flex;
+	justify-content: flex-end;
+	margin: 8px 0;
+
+	& .selectControl {
+		width: 80px;
+	}
+	
+	& .searchControl {
+		margin-right: 16px;
+		min-width: 320px;
+	}
+
+	@media screen and (max-width: 560px) {
+		flex-direction: column;
+		align-items: flex-start;
+
+		& .searchControl {
+			margin-bottom: 8px;
+		}
+	}
+}

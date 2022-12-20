@@ -1,0 +1,11 @@
+@import 'assets/styles';
+
+.search-page {
+	& .search-bar {
+		min-width: 400px;
+	}
+}
+
+.active-column {
+	color: #0B5ED7;
+}
